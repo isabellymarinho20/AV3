@@ -1,0 +1,6 @@
+# Dependências (Nunca envie para o Git)
+node_modules/
+dist/
+build/
+
+.env
