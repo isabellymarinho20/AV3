@@ -1,5 +1,6 @@
 import { useState, ChangeEvent } from 'react'
-import { FileText } from 'lucide-react'
+import { FileText, Download } from 'lucide-react'
+import jsPDF from 'jspdf'
 import { useApp } from '../context/AppContext'
 import Card from '../components/ui/Card'
 import Btn from '../components/ui/Btn'
@@ -12,6 +13,22 @@ export default function ViewRelatorio() {
   const [nomeCliente, setNomeCliente] = useState('')
   const [dataEntrega, setDataEntrega] = useState('')
   const [relatorio, setRelatorio] = useState('')
+
+  const baixarPDF = () => {
+    const aeronave = aeronaves.find(a => a.id === Number(aeronaveId))
+    const textoPDF = relatorio
+      .replace(/═/g, '=')
+      .replace(/─/g, '-')
+    const doc = new jsPDF()
+    doc.setFont('courier', 'normal')
+    doc.setFontSize(10)
+    const linhas = doc.splitTextToSize(textoPDF, 180)
+    doc.text(linhas, 15, 15)
+    const nomeArquivo = aeronave
+      ? `relatorio-${aeronave.codigo}-${nomeCliente.replace(/\s+/g, '_')}.pdf`
+      : 'relatorio.pdf'
+    doc.save(nomeArquivo)
+  }
 
   const gerarRelatorio = () => {
     const aeronave = aeronaves.find(a => a.id === Number(aeronaveId))
@@ -116,6 +133,9 @@ export default function ViewRelatorio() {
               border: '1px solid #e8eaed',
             }}>
               {relatorio}
+            </div>
+            <div style={{ marginTop: 16 }}>
+              <Btn onClick={baixarPDF} icon={Download}>Baixar Relatório em PDF</Btn>
             </div>
           </Card>
         )}

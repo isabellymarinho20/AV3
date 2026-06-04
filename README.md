@@ -8,20 +8,17 @@ Sistema de gerenciamento de montagem e manutenção de aeronaves. Este projeto i
 
 ```
 AV3/
-├── backend/
-│   ├── src/
-│   │   ├── routes/
-│   │   │   ├── auth.ts
-│   │   │   ├── aeronaves.ts
-│   │   │   ├── funcionarios.ts
-│   │   │   ├── etapas.ts
-│   │   │   ├── pecas.ts
-│   │   │   └── testes.ts
-│   │   └── server.ts
-│   ├── package.json
-│   └── tsconfig.json
+├── src/
+│   ├── routes/
+│   │   ├── auth.ts
+│   │   ├── aeronaves.ts
+│   │   ├── funcionarios.ts
+│   │   ├── etapas.ts
+│   │   ├── pecas.ts
+│   │   └── testes.ts
+│   └── server.ts
 │
-├── frontend/
+├── front/
 │   ├── src/
 │   │   ├── assets/
 │   │   ├── components/
@@ -38,7 +35,8 @@ AV3/
 │   ├── seed.ts
 │   └── migrations/
 │
-├── .env
+├── .env              ← NÃO está no git (crie manualmente, veja abaixo)
+├── tsconfig.json
 ├── package.json
 └── README.md
 ```
@@ -53,19 +51,11 @@ AV3/
 
 ---
 
-## Configurando o Banco de Dados (MySQL)
+## Configurando o arquivo .env
 
-### 1. Criar o banco
+> O arquivo `.env` é ignorado pelo Git por questão de segurança. Você precisa criá-lo manualmente na **raiz do projeto** (`AV3/`) antes de rodar o projeto.
 
-Abra o MySQL e execute:
-
-```sql
-CREATE DATABASE aerocode;
-```
-
-### 2. Configurar a conexão
-
-Abra o arquivo `backend/.env` e ajuste com seus dados:
+Crie um arquivo chamado `.env` na raiz com o seguinte conteúdo:
 
 ```env
 DATABASE_URL="mysql://SEU_USUARIO:SUA_SENHA@localhost:3306/aerocode"
@@ -94,13 +84,6 @@ Na raiz do projeto (`AV3/`):
 npm install
 ```
 
-Na pasta do backend:
-
-```bash
-cd backend
-npm install
-```
-
 Na pasta do frontend:
 
 ```bash
@@ -108,17 +91,24 @@ cd frontend
 npm install
 ```
 
-### 2. Configurar o banco
+### 2. Criar o banco de dados
 
-Na **raiz do projeto** (`AV3/`), rode:
+Abra o MySQL e execute:
+
+```sql
+CREATE DATABASE aerocode;
+```
+
+### 3. Configurar o banco
+
+Na raiz do projeto (`AV3/`), rode:
 
 ```bash
 npm run migrate
-
 npm run seed
 ```
 
-### 3. Rodar o projeto
+### 4. Rodar o projeto
 
 Na raiz do projeto (`AV3/`), um único comando sobe tudo:
 
@@ -148,8 +138,7 @@ O banco é **MySQL** gerenciado pelo **Prisma ORM**.
 ### Abrir o Prisma Studio (visualizador do banco)
 
 ```bash
-cd backend
-npx prisma studio
+npx prisma studio --schema=prisma/schema.prisma
 ```
 
 ---
@@ -259,6 +248,19 @@ npx prisma studio
 
 ---
 
+## Scripts Disponíveis
+
+| Script | Descrição |
+|--------|-----------|
+| `npm run dev` | Sobe backend (porta 3001) e frontend (porta 5173) ao mesmo tempo |
+| `npm run build` | Compila o backend para JavaScript |
+| `npm start` | Executa a versão compilada do backend |
+| `npm run migrate` | Aplica as migrations no banco de dados |
+| `npm run seed` | Popula o banco com dados iniciais |
+| `npm run setup` | Roda migrate + seed de uma vez (primeira execução) |
+
+---
+
 ## Tecnologias Utilizadas
 
 ### Backend
@@ -272,33 +274,6 @@ npx prisma studio
 - **Vite** — bundler e dev server
 - **Lucide React** — ícones
 - **Recharts** — gráficos no dashboard
-
----
-
-## Scripts Disponíveis
-
-### Raiz (`AV3/`)
-
-| Script | Descrição |
-|--------|-----------|
-| `npm run dev` | Sobe backend e frontend ao mesmo tempo |
-
-### Backend (`backend/`)
-
-| Script | Descrição |
-|--------|-----------|
-| `npm run dev` | Servidor em modo desenvolvimento |
-| `npm run build` | Compilar para JavaScript |
-| `npm start` | Executar versão compilada |
-| `npm run prisma:migrate` | Aplicar migrations |
-| `npm run prisma:seed` | Popular banco com dados iniciais |
-
-### Frontend (`frontend/`)
-
-| Script | Descrição |
-|--------|-----------|
-| `npm run dev` | Servidor de desenvolvimento |
-| `npm run build` | Build de produção |
 
 ---
 
