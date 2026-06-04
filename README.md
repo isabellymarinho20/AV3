@@ -1,6 +1,12 @@
 # AeroCode — AV3
 
-Sistema de gerenciamento de montagem e manutenção de aeronaves. Este projeto integra o backend (API REST em Express + Prisma) com o frontend (React + Vite), persistindo todos os dados em um banco MySQL via Prisma ORM.
+AV3 -  Técnicas de Programação I
+
+Nome: Isabelly Pacheco Marinho -2DSM
+
+---
+
+Sistema de gerenciamento de montagem e manutenção de aeronaves. Este projeto integra o backend (Express) com o frontend (React + Vite), persistindo todos os dados em um banco MySQL via Prisma ORM.
 
 ---
 
@@ -35,7 +41,7 @@ AV3/
 │   ├── seed.ts
 │   └── migrations/
 │
-├── .env              ← NÃO está no git (crie manualmente, veja abaixo)
+├── .env              ← crie manualmente, veja abaixo
 ├── tsconfig.json
 ├── package.json
 └── README.md
@@ -48,6 +54,92 @@ AV3/
 - [Node.js](https://nodejs.org/) v18 ou superior
 - npm v9 ou superior
 - [MySQL](https://dev.mysql.com/downloads/) v8 ou superior instalado e rodando
+
+---
+
+## Rodando no Linux (Ubuntu 24.04 ou superior)
+
+> Válido para Ubuntu 24.04.03+ e distribuições derivadas.
+
+### 1. Instalar o Node.js
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+Verifique a instalação:
+
+```bash
+node -v
+npm -v
+```
+
+### 2. Instalar o MySQL
+
+```bash
+sudo apt update
+sudo apt install -y mysql-server
+sudo systemctl start mysql
+sudo systemctl enable mysql
+```
+
+Acesse o MySQL e defina uma senha para o root (se necessário):
+
+```bash
+sudo mysql
+```
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'sua_senha';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+Crie o banco de dados:
+
+```bash
+mysql -u root -p
+```
+
+```sql
+CREATE DATABASE aerocode;
+EXIT;
+```
+
+### 3. Clonar e instalar dependências
+
+```bash
+git clone <url-do-repositorio>
+cd AV3
+npm install
+cd front && npm install && cd ..
+```
+
+### 4. Criar o arquivo .env
+
+```bash
+nano .env
+```
+
+Cole o conteúdo abaixo, ajustando usuário e senha:
+
+```env
+DATABASE_URL="mysql://root:sua_senha@localhost:3306/aerocode"
+PORT=3001
+```
+
+Salve com `Ctrl+O`, `Enter` e saia com `Ctrl+X`.
+
+### 5. Configurar o banco e rodar
+
+```bash
+npm run migrate
+npm run seed
+npm run dev
+```
+
+Acesse em: **http://localhost:5173**
 
 ---
 
@@ -87,8 +179,9 @@ npm install
 Na pasta do frontend:
 
 ```bash
-cd frontend
+cd front
 npm install
+cd ..
 ```
 
 ### 2. Criar o banco de dados
@@ -132,16 +225,9 @@ O banco é **MySQL** gerenciado pelo **Prisma ORM**.
 | `Aeronave`         | Aeronaves cadastradas                             |
 | `Peca`             | Peças associadas a uma aeronave                   |
 | `Etapa`            | Etapas de produção de uma aeronave                |
-| `EtapaFuncionario` | Relacionamento N:N entre etapa e funcionário      |
+| `EtapaFuncionario` | Relacionamento entre etapa e funcionário      |
 | `Teste`            | Testes realizados em uma aeronave                 |
 
-### Abrir o Prisma Studio (visualizador do banco)
-
-```bash
-npx prisma studio --schema=prisma/schema.prisma
-```
-
----
 
 ## Usuários de Acesso (Seed)
 
@@ -154,112 +240,6 @@ npx prisma studio --schema=prisma/schema.prisma
 | `eng01`      | `654` | Engenheiro    |
 | `isa.op`     | `987` | Operador      |
 
----
-
-## Endpoints da API
-
-### Autenticação
-
-| Método | Rota          | Descrição               |
-|--------|---------------|-------------------------|
-| POST   | `/auth/login` | Login com usuário/senha |
-
-**Body:**
-```json
-{ "usuario": "isa.admin", "senha": "123" }
-```
-
----
-
-### Aeronaves
-
-| Método | Rota             | Descrição                 |
-|--------|------------------|---------------------------|
-| GET    | `/aeronaves`     | Listar todas as aeronaves |
-| GET    | `/aeronaves/:id` | Detalhe de uma aeronave   |
-| POST   | `/aeronaves`     | Cadastrar aeronave        |
-
-**Body (POST):**
-```json
-{
-  "codigo": "A003",
-  "modelo": "KC-390",
-  "tipo": "Militar",
-  "capacidade": 80,
-  "alcance": 2800
-}
-```
-
----
-
-### Funcionários
-
-| Método | Rota                | Descrição             |
-|--------|---------------------|-----------------------|
-| GET    | `/funcionarios`     | Listar funcionários   |
-| POST   | `/funcionarios`     | Cadastrar funcionário |
-| DELETE | `/funcionarios/:id` | Deletar funcionário   |
-
-**Validações (POST):**
-- Nome, usuário e senha devem ser **únicos** — não é permitido cadastrar dois funcionários com o mesmo nome, mesmo usuário **ou** mesma senha.
-
----
-
-### Peças
-
-| Método | Rota                           | Descrição                |
-|--------|--------------------------------|--------------------------|
-| POST   | `/aeronaves/:id/pecas`         | Adicionar peça           |
-| PATCH  | `/aeronaves/:id/pecas/:pecaId` | Atualizar status da peça |
-
----
-
-### Etapas
-
-| Método | Rota                                          | Descrição                    |
-|--------|-----------------------------------------------|------------------------------|
-| POST   | `/aeronaves/:id/etapas`                       | Adicionar etapa              |
-| PATCH  | `/aeronaves/:id/etapas/:etapaId/iniciar`      | Iniciar etapa                |
-| PATCH  | `/aeronaves/:id/etapas/:etapaId/concluir`     | Concluir etapa               |
-| POST   | `/aeronaves/:id/etapas/:etapaId/funcionarios` | Associar funcionário à etapa |
-
-**Regra de negócio:**
-> Não é permitido adicionar uma nova etapa enquanto houver uma etapa com status **Pendente** na mesma aeronave.
-
----
-
-### Testes
-
-| Método | Rota                    | Descrição       |
-|--------|-------------------------|-----------------|
-| POST   | `/aeronaves/:id/testes` | Registrar teste |
-
----
-
-## Regras de Negócio
-
-| Regra | Descrição |
-|-------|-----------|
-| **Etapa Pendente** | Não é possível adicionar uma nova etapa enquanto houver etapa com status `Pendente`. |
-| **Usuário duplicado** | Nome, usuário e senha devem ser únicos ao cadastrar um funcionário. |
-| **Código de aeronave** | O código de cada aeronave deve ser único. |
-| **Capacidade e alcance** | Devem ser maiores que zero. |
-| **Funcionário duplicado em etapa** | Um funcionário não pode ser associado duas vezes à mesma etapa. |
-
----
-
-## Scripts Disponíveis
-
-| Script | Descrição |
-|--------|-----------|
-| `npm run dev` | Sobe backend (porta 3001) e frontend (porta 5173) ao mesmo tempo |
-| `npm run build` | Compila o backend para JavaScript |
-| `npm start` | Executa a versão compilada do backend |
-| `npm run migrate` | Aplica as migrations no banco de dados |
-| `npm run seed` | Popula o banco com dados iniciais |
-| `npm run setup` | Roda migrate + seed de uma vez (primeira execução) |
-
----
 
 ## Tecnologias Utilizadas
 
@@ -275,8 +255,4 @@ npx prisma studio --schema=prisma/schema.prisma
 - **Lucide React** — ícones
 - **Recharts** — gráficos no dashboard
 
----
 
-## Autora
-
-Isabelly — AV3 (2025)
