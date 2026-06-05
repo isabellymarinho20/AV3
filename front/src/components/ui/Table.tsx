@@ -13,6 +13,7 @@ interface TableProps {
   rows:    TableRow[]
   empty?:  string
 }
+//*********BRASILL************* */
 //***************************** */
 function renderCell(cell: TableCell): ReactNode {
   if (typeof cell === 'object' && 'content' in cell) return cell.content
@@ -65,7 +66,7 @@ export default function Table({ headers, rows, empty = 'Nenhum registro encontra
                   {renderCell(cell)}
                 </td>
               ))}
-            </tr>
+            </tr>//*********BRASILL************* */
           ))}
         </tbody>
       </table>

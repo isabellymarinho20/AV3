@@ -10,7 +10,7 @@ import Table from '../components/ui/Table'
 import Badge from '../components/ui/Badge'
 import Btn from '../components/ui/Btn'
 import type { Aeronave, View } from '../types'
-
+//*********BRASILL************* */
 interface Props {
   setView: (view: View) => void
   setSelectedAero: (aero: Aeronave) => void
@@ -87,7 +87,7 @@ export default function Dashboard({ setView, setSelectedAero }: Props) {
                   <Bar dataKey="pct" fill="#007CC3" radius={[0, 5, 5, 0]} />
                 </BarChart>
               </ResponsiveContainer>
-            )
+            )//*********BRASILL************* */
           }
         </Card>
 

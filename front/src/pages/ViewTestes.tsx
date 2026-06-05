@@ -10,7 +10,7 @@ import { FormField, FSelect } from '../components/ui/FormField'
 import Modal from '../components/Modal'
 import type { TipoTeste, ResultadoTeste } from '../types'
 import { PlusCircle } from 'lucide-react'
-
+//*********BRASILL************* */
 export default function ViewTestes() {
   const { aeronaves, addTeste } = useApp()
   const [modalAberto, setModalAberto] = useState(false)
@@ -69,7 +69,7 @@ export default function ViewTestes() {
             if (form.aeroId) {
               addTeste(Number(form.aeroId), { tipo: form.tipo as TipoTeste, resultado: form.resultado as ResultadoTeste })
               setModalAberto(false)
-            }
+            }//*********BRASILL************* */
           }}>Registrar</Btn>
         </div>
       </Modal>

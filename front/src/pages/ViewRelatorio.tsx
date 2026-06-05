@@ -13,7 +13,7 @@ export default function ViewRelatorio() {
   const [nomeCliente, setNomeCliente] = useState('')
   const [dataEntrega, setDataEntrega] = useState('')
   const [relatorio, setRelatorio] = useState('')
-
+//*********BRASILL************* */
   const baixarPDF = () => {
     const aeronave = aeronaves.find(a => a.id === Number(aeronaveId))
     const textoPDF = relatorio
@@ -116,11 +116,11 @@ export default function ViewRelatorio() {
           </div>
           <div style={{ marginTop: 20 }}>
             <Btn onClick={gerarRelatorio} icon={FileText}>Gerar Relatório</Btn>
-          </div>
+          </div>//*********BRASILL************* */
         </Card>
 
         {relatorio && (
-          <Card>
+          <Card>//*********BRASILL************* */
             <div style={{
               fontFamily: 'JetBrains Mono, monospace',
               fontSize: 12,

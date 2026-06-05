@@ -8,7 +8,7 @@ import Btn from '../components/ui/Btn'
 import SectionTitle from '../components/ui/SectionTitle'
 import { FormField, FInput, FSelect } from '../components/ui/FormField'
 import Modal from '../components/Modal'
-
+//*********BRASILL************* */
 export default function ViewEtapas() {
   const { aeronaves, addEtapa, iniciarEtapa, concluirEtapa } = useApp()
   const [modalAberto, setModalAberto] = useState(false)
@@ -45,7 +45,7 @@ export default function ViewEtapas() {
     const btn = e.currentTarget
     btn.style.background = bgColor
     btn.style.borderColor = borderColor
-  }
+  }//*********BRASILL************* */
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLButtonElement>, isActive: boolean) => {
     const btn = e.currentTarget
@@ -89,7 +89,7 @@ export default function ViewEtapas() {
                     }}
                   >
                     Mudar Status
-                  </button>
+                  </button>//*********BRASILL************* */
                 )
               }
             ],

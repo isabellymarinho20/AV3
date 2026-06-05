@@ -7,7 +7,7 @@ async function req<T>(path: string, options?: RequestInit): Promise<T> {
   if (!res.ok) throw new Error(data.erro || 'Erro na requisicao')
   return data as T
 }
-
+//*********BRASILL************* */
 export const api = {
   login: (usuario: string, senha: string) =>
     req('/auth/login', { method: 'POST', body: JSON.stringify({ usuario, senha }) }),
@@ -40,3 +40,4 @@ export const api = {
   deleteFuncionario: (id: number) =>
     req(`/funcionarios/${id}`, { method: 'DELETE' }),
 }
+//*********BRASILL************* */

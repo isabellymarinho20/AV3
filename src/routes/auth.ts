@@ -6,7 +6,7 @@ const prisma = new PrismaClient()
 
 router.post('/login', async (req: Request, res: Response) => {
   const { usuario, senha } = req.body
-
+//*********BRASILL************* */
   if (!usuario || !senha) {
     return res.status(400).json({ erro: 'Usuario e senha sao obrigatorios' })
   }
@@ -19,6 +19,6 @@ router.post('/login', async (req: Request, res: Response) => {
 
   const { senha: _, ...dadosSeguros } = funcionario
   return res.json(dadosSeguros)
-})
+})//*********BRASILL************* */
 
 export default router

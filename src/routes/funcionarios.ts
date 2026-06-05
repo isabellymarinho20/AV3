@@ -11,7 +11,7 @@ router.get('/', async (_req: Request, res: Response) => {
       endereco: true, usuario: true,
       nivelPermissao: true, cargo: true,
     },
-  })
+  })//*********BRASILL************* */
   return res.json(funcionarios)
 })
 

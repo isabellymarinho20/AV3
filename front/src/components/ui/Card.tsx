@@ -10,7 +10,7 @@ export default function Card({ children, style, padding = '24px' }: CardProps) {
   return (
     <div style={{
       background: '#fff',
-      border: '1px solid var(--border)',
+      border: '1px solid var(--border)',//*********BRASILL************* */
       borderRadius: 16,
       padding,
       boxShadow: 'var(--shadow)',

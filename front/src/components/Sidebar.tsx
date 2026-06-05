@@ -87,6 +87,7 @@ interface SidebarProps {
   current:    View
   setCurrent: (view: View) => void
 }
+//*********BRASILL************* */
 
 export default function Sidebar({ current, setCurrent }: SidebarProps) {
   const { user, logout} = useApp()

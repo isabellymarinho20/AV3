@@ -6,7 +6,7 @@ export type NivelPermissao = 'Administrador' | 'Engenheiro' | 'Operador'
 export type TipoTeste     = 'Eletrico' | 'Hidraulico' | 'Aerodinamico'
 export type ResultadoTeste = 'Aprovado' | 'Reprovado'
 export type ToastType     = 'success' | 'error'
-
+//*********BRASILL************* */
 export type View =
   | 'dashboard'
   | 'aeronaves'

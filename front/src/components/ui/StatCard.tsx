@@ -7,7 +7,7 @@ interface StatCardProps {
   icon:   ElementType
   color?: string
 }
-
+//*********BRASILL************* */
 export default function StatCard({ label, value, icon: Icon, color = '#007CC3' }: StatCardProps) {
   return (
     <Card>

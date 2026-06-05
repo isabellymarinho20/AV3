@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client'
 
 const router = Router()
 const prisma = new PrismaClient()
-
+//*********BRASILL************* */
 router.get('/', async (_req: Request, res: Response) => {
   const aeronaves = await prisma.aeronave.findMany({
     include: {
@@ -29,7 +29,7 @@ router.get('/:id', async (req: Request, res: Response) => {
       },
       testes: true,
     },
-  })
+  })//*********BRASILL************* */
   if (!aeronave) return res.status(404).json({ erro: 'Aeronave nao encontrada' })
   return res.json(aeronave)
 })

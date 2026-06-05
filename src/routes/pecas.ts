@@ -10,7 +10,7 @@ router.post('/:id/pecas', async (req: Request, res: Response) => {
 
   if (!nome || !tipo || !fornecedor || !status) {
     return res.status(400).json({ erro: 'Todos os campos sao obrigatorios' })
-  }
+  }//*********BRASILL************* */
 
   const aeronave = await prisma.aeronave.findUnique({ where: { id: aeronaveId } })
   if (!aeronave) return res.status(404).json({ erro: 'Aeronave nao encontrada' })

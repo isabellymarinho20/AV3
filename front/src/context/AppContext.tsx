@@ -104,7 +104,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         usuario: dados.usuario,
         senha: '',
         nivel: dados.nivelPermissao as NivelPermissao,
-        cargo: dados.cargo,
+        cargo: dados.cargo,//*********BRASILL************* */
       })
       return true
     } catch (e: any) {

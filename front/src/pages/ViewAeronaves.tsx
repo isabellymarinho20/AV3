@@ -12,7 +12,7 @@ import type { Aeronave, View } from '../types'
 
 interface Props {
   setView: (view: View) => void
-  setSelectedAero: (aero: Aeronave) => void
+  setSelectedAero: (aero: Aeronave) => void//*********BRASILL************* */
 }
 
 export default function ViewAeronaves({ setView, setSelectedAero }: Props) {
@@ -42,7 +42,7 @@ export default function ViewAeronaves({ setView, setSelectedAero }: Props) {
         <Table
           headers={['Código', 'Modelo', 'Tipo', 'Capacidade', 'Alcance', 'Peças', 'Etapas', 'Testes', '']}
           empty="Nenhuma aeronave cadastrada."
-          rows={aeronaves.map(aeronave => ({
+          rows={aeronaves.map(aeronave => ({//*********BRASILL************* */
             _onClick: () => { setSelectedAero(aeronave); setView('aeroDetalhe') },
             cells: [
               { content: <span style={{ color: '#000000', fontWeight: 600, fontSize: 12 }}>{aeronave.codigo}</span> },
@@ -78,3 +78,4 @@ export default function ViewAeronaves({ setView, setSelectedAero }: Props) {
     </div>
   )
 }
+//*********BRASILL************* */

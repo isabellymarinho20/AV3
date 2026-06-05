@@ -27,7 +27,7 @@ export default function Badge({ children, variant = 'gray' }: BadgeProps) {
       fontFamily: 'JetBrains Mono, monospace',
       letterSpacing: '0.02em', whiteSpace: 'nowrap',
     }}>
-      {children}
+      {children}//*********BRASILL************* */
     </span>
   )
 }

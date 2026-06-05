@@ -8,7 +8,7 @@ type BtnSize    = 'sm' | 'md'
 interface BtnProps {
   children?: React.ReactNode
   variant?:  BtnVariant//***************************** */
-  size?:     BtnSize
+  size?:     BtnSize//*********BRASILL************* */
   full?:     boolean
   onClick?:  () => void
   disabled?: boolean

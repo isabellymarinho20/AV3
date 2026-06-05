@@ -9,7 +9,7 @@ import SectionTitle from '../components/ui/SectionTitle'
 import { FormField, FInput, FSelect } from '../components/ui/FormField'
 import Modal from '../components/Modal'
 import type { StatusPeca } from '../types'
-
+//*********BRASILL************* */
 export default function ViewPecas() {
   const { aeronaves, addPeca, updateStatusPeca } = useApp()
   const [modalAberto, setModalAberto] = useState<string | null>(null)
