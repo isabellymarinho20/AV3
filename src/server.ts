@@ -1,6 +1,5 @@
 import 'dotenv/config'
 import express from 'express'
-import cors from 'cors'
 import authRoutes from './routes/auth'
 import aeronaveRoutes from './routes/aeronaves'
 import funcionarioRoutes from './routes/funcionarios'
@@ -11,7 +10,6 @@ import testeRoutes from './routes/testes'
 const app = express()
 const PORT = process.env.PORT || 3001
 
-app.use(cors())
 app.use(express.json())
 
 app.use('/auth', authRoutes)
