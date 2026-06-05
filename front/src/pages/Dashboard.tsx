@@ -2,10 +2,9 @@ import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell,
 } from 'recharts'
-import { Plane, Package, Clock, Users, PlusCircle, RefreshCw } from 'lucide-react'
+import { PlusCircle } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import Card from '../components/ui/Card'
-import StatCard from '../components/ui/StatCard'
 import Table from '../components/ui/Table'
 import Badge from '../components/ui/Badge'
 import Btn from '../components/ui/Btn'

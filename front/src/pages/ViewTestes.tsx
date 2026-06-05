@@ -14,7 +14,7 @@ import { PlusCircle } from 'lucide-react'
 export default function ViewTestes() {
   const { aeronaves, addTeste } = useApp()
   const [modalAberto, setModalAberto] = useState(false)
-  const [form, setForm] = useState({ aeroId: '', tipo: 'Elétrico', resultado: 'Aprovado' })
+  const [form, setForm] = useState({ aeroId: '', tipo: 'Eletrico', resultado: 'Aprovado' })
 
   const handleChange = (campo: keyof typeof form) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [campo]: e.target.value }))

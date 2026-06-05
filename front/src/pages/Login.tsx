@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useApp } from '../context/AppContext'
+import logo from '../assets/logo.png'
 
 export default function Login() {
   const { login } = useApp()
@@ -28,7 +29,7 @@ export default function Login() {
       <div style={{ width: 460, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '48px 60px', background: '#fff' }}>
         <div style={{ width: '100%', maxWidth: 340 }}>
           <div style={{ marginBottom: 40 }}>
-            <img src='../../src/assets/logo.png' alt="Logo da Empresa" style={{ height: '350px', width: '380px' }} />
+            <img src={logo} alt="Logo da Empresa" style={{ height: '350px', width: '380px' }} />
           </div>
           <div style={{ marginBottom: 28 }}>
             <div style={{ fontSize: 22, fontWeight: 800, color: '#111827', letterSpacing: '-0.5px', marginBottom: 4 }}>Bem-vindo ao AeroCode</div>
@@ -48,6 +49,7 @@ export default function Login() {
               type="password"
               value={senha}
               onChange={e => setSenha(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && handleLogin()}
               placeholder="••••••••"
               style={{ width: '100%', boxSizing: 'border-box', padding: '11px 14px', border: '1.5px solid #e8eaed', borderRadius: 10, fontSize: 13, background: '#f8f9fb', color: '#111827', fontStyle: 'italic', outline: 'none' }}
             />//*********BRASILL************* */
