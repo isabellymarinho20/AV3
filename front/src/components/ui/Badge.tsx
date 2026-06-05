@@ -27,11 +27,11 @@ export default function Badge({ children, variant = 'gray' }: BadgeProps) {
       fontFamily: 'JetBrains Mono, monospace',
       letterSpacing: '0.02em', whiteSpace: 'nowrap',
     }}>
-      {children}//*********BRASILL************* */
+      {children}
     </span>
   )
 }
-
+//*********BRASILL************* */
 export function badgeForStatus(s: string) {
   if (s === 'Concluído' || s === 'Concluido') return <Badge variant="green">Concluído</Badge>
   if (s === 'Em Andamento')  return <Badge variant="blue">{s}</Badge>

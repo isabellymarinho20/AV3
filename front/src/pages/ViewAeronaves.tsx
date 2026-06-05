@@ -9,10 +9,10 @@ import SectionTitle from '../components/ui/SectionTitle'
 import { FormField, FInput, FSelect } from '../components/ui/FormField'
 import Modal from '../components/Modal'
 import type { Aeronave, View } from '../types'
-
+//*********BRASILL************* */
 interface Props {
   setView: (view: View) => void
-  setSelectedAero: (aero: Aeronave) => void//*********BRASILL************* */
+  setSelectedAero: (aero: Aeronave) => void
 }
 
 export default function ViewAeronaves({ setView, setSelectedAero }: Props) {
@@ -42,7 +42,7 @@ export default function ViewAeronaves({ setView, setSelectedAero }: Props) {
         <Table
           headers={['Código', 'Modelo', 'Tipo', 'Capacidade', 'Alcance', 'Peças', 'Etapas', 'Testes', '']}
           empty="Nenhuma aeronave cadastrada."
-          rows={aeronaves.map(aeronave => ({//*********BRASILL************* */
+          rows={aeronaves.map(aeronave => ({
             _onClick: () => { setSelectedAero(aeronave); setView('aeroDetalhe') },
             cells: [
               { content: <span style={{ color: '#000000', fontWeight: 600, fontSize: 12 }}>{aeronave.codigo}</span> },

@@ -235,9 +235,6 @@ O banco é **MySQL** gerenciado pelo **Prisma ORM**.
 |--------------|-------|---------------|
 | `isa.admin`  | `123` | Administrador |
 | `isa.eng`    | `456` | Engenheiro    |
-| `operador01` | `789` | Operador      |
-| `operador02` | `321` | Operador      |
-| `eng01`      | `654` | Engenheiro    |
 | `isa.op`     | `987` | Operador      |
 
 

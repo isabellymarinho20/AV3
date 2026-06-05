@@ -61,7 +61,7 @@ export default function AeroDetalhe({ aero, onBack }: AeroDetalheProps) {
                           style={{ background: '#dbeafe', border: 'none', borderRadius: 6, padding: '4px 8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, fontWeight: 600, color: '#1d4ed8' }}
                         >
                           <Play size={11} /> Iniciar
-                        </button>//*********BRASILL************* */
+                        </button>
                       )}
                       {etapa.status === 'Em Andamento' && (
                         <button
@@ -105,7 +105,7 @@ export default function AeroDetalhe({ aero, onBack }: AeroDetalheProps) {
                   <span style={{ fontSize: 13, fontWeight: 500 }}>{teste.tipo}</span>
                   {badgeForStatus(teste.resultado)}
                 </div>
-              ))//*********BRASILL************* */
+              ))
             }
           </Card>
         </div>
@@ -113,3 +113,4 @@ export default function AeroDetalhe({ aero, onBack }: AeroDetalheProps) {
     </div>
   )
 }
+//*********BRASILL************* */

@@ -69,10 +69,11 @@ export default function ViewTestes() {
             if (form.aeroId) {
               addTeste(Number(form.aeroId), { tipo: form.tipo as TipoTeste, resultado: form.resultado as ResultadoTeste })
               setModalAberto(false)
-            }//*********BRASILL************* */
+            }
           }}>Registrar</Btn>
         </div>
       </Modal>
     </div>
   )
 }
+//*********BRASILL************* */

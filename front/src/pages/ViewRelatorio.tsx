@@ -6,14 +6,14 @@ import Card from '../components/ui/Card'
 import Btn from '../components/ui/Btn'
 import SectionTitle from '../components/ui/SectionTitle'
 import { FormField, FInput, FSelect } from '../components/ui/FormField'
-
+//*********BRASILL************* */
 export default function ViewRelatorio() {
   const { aeronaves } = useApp()
   const [aeronaveId, setAeronaveId] = useState('')
   const [nomeCliente, setNomeCliente] = useState('')
   const [dataEntrega, setDataEntrega] = useState('')
   const [relatorio, setRelatorio] = useState('')
-//*********BRASILL************* */
+
   const baixarPDF = () => {
     const aeronave = aeronaves.find(a => a.id === Number(aeronaveId))
     const textoPDF = relatorio
@@ -116,11 +116,11 @@ export default function ViewRelatorio() {
           </div>
           <div style={{ marginTop: 20 }}>
             <Btn onClick={gerarRelatorio} icon={FileText}>Gerar Relatório</Btn>
-          </div>//*********BRASILL************* */
+          </div>
         </Card>
 
         {relatorio && (
-          <Card>//*********BRASILL************* */
+          <Card>
             <div style={{
               fontFamily: 'JetBrains Mono, monospace',
               fontSize: 12,
@@ -143,3 +143,4 @@ export default function ViewRelatorio() {
     </div>
   )
 }
+//*********BRASILL************* */

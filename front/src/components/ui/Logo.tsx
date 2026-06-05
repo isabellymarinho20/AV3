@@ -10,7 +10,7 @@ export default function Logo({ size = 'md' }: LogoProps) {
     : size === 'sm'
     ? { icon: 28, text: 17, sub: 9 }
     : { icon: 36, text: 22, sub: 10 }
-//*********BRASILL************* */
+
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
       <div style={{ position: 'relative', width: s.icon, height: s.icon }}>
@@ -39,3 +39,4 @@ export default function Logo({ size = 'md' }: LogoProps) {
     </div>
   )
 }
+//*********BRASILL************* */

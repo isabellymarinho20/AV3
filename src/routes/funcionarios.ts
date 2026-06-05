@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client'
 
 const router = Router()
 const prisma = new PrismaClient()
-
+//*********BRASILL************* */
 router.get('/', async (_req: Request, res: Response) => {
   const funcionarios = await prisma.funcionario.findMany({
     select: {
@@ -11,7 +11,7 @@ router.get('/', async (_req: Request, res: Response) => {
       endereco: true, usuario: true,
       nivelPermissao: true, cargo: true,
     },
-  })//*********BRASILL************* */
+  })
   return res.json(funcionarios)
 })
 

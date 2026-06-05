@@ -66,7 +66,7 @@ export default function Table({ headers, rows, empty = 'Nenhum registro encontra
                   {renderCell(cell)}
                 </td>
               ))}
-            </tr>//*********BRASILL************* */
+            </tr>
           ))}
         </tbody>
       </table>

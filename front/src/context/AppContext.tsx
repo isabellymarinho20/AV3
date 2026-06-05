@@ -104,7 +104,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         usuario: dados.usuario,
         senha: '',
         nivel: dados.nivelPermissao as NivelPermissao,
-        cargo: dados.cargo,//*********BRASILL************* */
+        cargo: dados.cargo,
       })
       return true
     } catch (e: any) {
@@ -112,7 +112,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       return false
     }
   }
-
+//*********BRASILL************* */
   const logout = () => {
     setUser(null)
     setAeronaves([])

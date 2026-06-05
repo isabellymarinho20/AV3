@@ -31,7 +31,7 @@ export default function ViewFuncionarios() {
   const membrosEtapa: Funcionario[] = etapaVer
     ? etapaVer.funcionarios.map(id => funcionarios.find(func => func.id === id)).filter((func): func is Funcionario => func !== undefined)
     : []
-//*********BRASILL************* */
+
   return (
     <div className="animate-fade-up">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 24 }}>
@@ -68,7 +68,7 @@ export default function ViewFuncionarios() {
                   </button>
                 )
               }] : []),
-            ],//*********BRASILL************* */
+            ],
           }))}
         />
       </Card>
@@ -187,3 +187,4 @@ export default function ViewFuncionarios() {
     </div>
   )
 }
+//*********BRASILL************* */

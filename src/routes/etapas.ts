@@ -3,11 +3,11 @@ import { PrismaClient } from '@prisma/client'
 
 const router = Router()
 const prisma = new PrismaClient()
-
+//*********BRASILL************* */
 router.post('/:id/etapas', async (req: Request, res: Response) => {
   const aeronaveId = Number(req.params.id)
   const { nome, prazo } = req.body
-//*********BRASILL************* */
+
   if (!nome || !prazo) {
     return res.status(400).json({ erro: 'Nome e prazo sao obrigatorios' })
   }

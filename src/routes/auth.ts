@@ -1,12 +1,12 @@
 import { Router, Request, Response } from 'express'
 import { PrismaClient } from '@prisma/client'
-
+//*********BRASILL************* */
 const router = Router()
 const prisma = new PrismaClient()
 
 router.post('/login', async (req: Request, res: Response) => {
   const { usuario, senha } = req.body
-//*********BRASILL************* */
+
   if (!usuario || !senha) {
     return res.status(400).json({ erro: 'Usuario e senha sao obrigatorios' })
   }

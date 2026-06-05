@@ -86,7 +86,7 @@ export default function Dashboard({ setView, setSelectedAero }: Props) {
                   <Bar dataKey="pct" fill="#007CC3" radius={[0, 5, 5, 0]} />
                 </BarChart>
               </ResponsiveContainer>
-            )//*********BRASILL************* */
+            )
           }
         </Card>
 
@@ -149,3 +149,4 @@ export default function Dashboard({ setView, setSelectedAero }: Props) {
     </div>
   )
 }
+//*********BRASILL************* */

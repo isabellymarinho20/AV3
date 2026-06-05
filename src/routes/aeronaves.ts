@@ -29,7 +29,7 @@ router.get('/:id', async (req: Request, res: Response) => {
       },
       testes: true,
     },
-  })//*********BRASILL************* */
+  })
   if (!aeronave) return res.status(404).json({ erro: 'Aeronave nao encontrada' })
   return res.json(aeronave)
 })
@@ -56,3 +56,4 @@ router.post('/', async (req: Request, res: Response) => {
 })
 
 export default router
+/*********BRASILL************* */

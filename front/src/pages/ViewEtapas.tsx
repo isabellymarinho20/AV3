@@ -45,7 +45,7 @@ export default function ViewEtapas() {
     const btn = e.currentTarget
     btn.style.background = bgColor
     btn.style.borderColor = borderColor
-  }//*********BRASILL************* */
+  }
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLButtonElement>, isActive: boolean) => {
     const btn = e.currentTarget
@@ -89,7 +89,7 @@ export default function ViewEtapas() {
                     }}
                   >
                     Mudar Status
-                  </button>//*********BRASILL************* */
+                  </button>
                 )
               }
             ],
@@ -188,3 +188,4 @@ export default function ViewEtapas() {
     </div>
   )
 }
+//*********BRASILL************* */

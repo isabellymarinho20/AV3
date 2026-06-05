@@ -13,7 +13,7 @@ export default function Login() {
     setErro('')
     const ok = await login(usuario, senha)
     if (!ok) setErro('Usuário ou senha incorretos.')
-  }//*********BRASILL************* */
+  }
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', background: '#fff' }}>
@@ -52,7 +52,7 @@ export default function Login() {
               onKeyDown={e => e.key === 'Enter' && handleLogin()}
               placeholder="••••••••"
               style={{ width: '100%', boxSizing: 'border-box', padding: '11px 14px', border: '1.5px solid #e8eaed', borderRadius: 10, fontSize: 13, background: '#f8f9fb', color: '#111827', fontStyle: 'italic', outline: 'none' }}
-            />//*********BRASILL************* */
+            />
           </div>
           {erro && (
             <div style={{ marginBottom: 14, padding: '10px 14px', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 8, fontSize: 12, color: '#dc2626' }}>
@@ -77,3 +77,4 @@ export default function Login() {
     </div>
   )
 }
+//*********BRASILL************* */

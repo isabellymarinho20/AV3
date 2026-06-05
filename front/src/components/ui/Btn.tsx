@@ -3,12 +3,12 @@ import type { CSSProperties, ElementType } from 'react'
 
 type BtnVariant = 'primary' | 'dark' | 'ghost' | 'danger' | 'success' | 'outline'
 type BtnSize    = 'sm' | 'md'
-
+//*********BRASILL************* */
 
 interface BtnProps {
   children?: React.ReactNode
-  variant?:  BtnVariant//***************************** */
-  size?:     BtnSize//*********BRASILL************* */
+  variant?:  BtnVariant
+  size?:     BtnSize
   full?:     boolean
   onClick?:  () => void
   disabled?: boolean
