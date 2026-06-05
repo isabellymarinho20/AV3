@@ -120,7 +120,7 @@ export default function Dashboard({ setView, setSelectedAero }: Props) {
         {aeronaves.length === 0
           ? (
             <div style={{ padding: '40px', textAlign: 'center', color: '#9ca3af', fontSize: 13, border: '2px dashed #e8eaed', margin: 20, borderRadius: 12 }}>
-              No aircraft registered yet. Use "Register aircraft" to add the first one.
+              Nenhuma aeronave cadastrada. Use "Cadastrar aeronave" para adicionar a primeira.
             </div>
           )
           : (

@@ -1,4 +1,4 @@
-import { ArrowLeft, Plane } from 'lucide-react'
+import { ArrowLeft, Play, CheckCircle } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import type { Aeronave } from '../types'
 import Card from '../components/ui/Card'
@@ -54,6 +54,24 @@ export default function AeroDetalhe({ aero, onBack }: AeroDetalheProps) {
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       {badgeForStatus(etapa.status)}
+                      {etapa.status === 'Pendente' && (
+                        <button
+                          onClick={() => iniciarEtapa(aeronave.id, etapa.id)}
+                          title="Iniciar etapa"
+                          style={{ background: '#dbeafe', border: 'none', borderRadius: 6, padding: '4px 8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, fontWeight: 600, color: '#1d4ed8' }}
+                        >
+                          <Play size={11} /> Iniciar
+                        </button>
+                      )}
+                      {etapa.status === 'Em Andamento' && (
+                        <button
+                          onClick={() => concluirEtapa(aeronave.id, etapa.id)}
+                          title="Concluir etapa"
+                          style={{ background: '#dcfce7', border: 'none', borderRadius: 6, padding: '4px 8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, fontWeight: 600, color: '#15803d' }}
+                        >
+                          <CheckCircle size={11} /> Concluir
+                        </button>
+                      )}
                     </div>
                   </div>
                 ))}
